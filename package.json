@@ -1,0 +1,23 @@
+{
+  "name": "spiralsounds",
+  "version": "1.0.0",
+  "description": "Online classic vinyl store",
+  "license": "ISC",
+  "author": "Yash Raut",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "setup-db": "node sql/setupDatabase.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7",
+    "validator": "^13.15.26"
+  }
+}
