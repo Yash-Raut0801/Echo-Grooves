@@ -107,7 +107,3 @@ If `.env` or DB were tracked earlier, untrack them:
 git rm --cached .env database.db
 git commit -m "Remove local secrets and DB from tracking"
 ```
-
-
-## License
-ISC
