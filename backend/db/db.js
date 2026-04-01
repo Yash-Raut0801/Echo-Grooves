@@ -4,7 +4,12 @@ import path from 'node:path'
 
 export async function getDBConnection() {
 
-  const dbPath = path.join('database.db')
+  // const dbPath = path.join('database.db')
+
+  const __filename = fileURLToPath(import.meta.url)
+  const __dirname = path.dirname(__filename)
+
+  const dbPath = path.join(__dirname, '../database.db')
 
   const db = await open({
     filename: dbPath,
@@ -14,12 +19,14 @@ export async function getDBConnection() {
   // Create tables automatically
   await db.exec(`
     CREATE TABLE IF NOT EXISTS products (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      name TEXT,
-      artist TEXT,
-      genre TEXT,
-      price REAL,
-      image TEXT
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT,
+    artist TEXT,
+    genre TEXT,
+    price REAL,
+    image TEXT,
+    year INTEGER,
+    stock INTEGER
     );
   `)
 
