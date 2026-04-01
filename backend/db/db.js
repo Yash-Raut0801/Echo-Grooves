@@ -4,12 +4,12 @@ import path from 'node:path'
 
 export async function getDBConnection() {
 
-  const dbPath = path.join(process.cwd(),'database.db')
+  // const dbPath = path.join(process.cwd(),'database.db')
 
-  // const __filename = fileURLToPath(import.meta.url)
-  // const __dirname = path.dirname(__filename)
+  const __filename = fileURLToPath(import.meta.url)
+  const __dirname = path.dirname(__filename)
 
-  // const dbPath = path.join(__dirname, '../database.db')
+  const dbPath = path.join(__dirname, 'database.db')
 
   const db = await open({
     filename: dbPath,
