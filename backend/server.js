@@ -5,8 +5,12 @@ import { meRouter } from './routes/me.js';
 import { cartRouter } from './routes/cart.js';
 import session from 'express-session';
 import dotenv from 'dotenv'; 
-
+import path from 'path';
+import { fileURLToPath } from "url";
 dotenv.config()
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = 8000;
@@ -24,7 +28,7 @@ app.use(session({
     }
 })) 
 
-app.use(express.static('../frontend/public'));
+app.use(express.static(path.join(__dirname, "../frontend/public")));
 
 app.use('/api/products', apiRouter);
 

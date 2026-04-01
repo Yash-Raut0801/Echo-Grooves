@@ -4,11 +4,24 @@ import path from 'node:path'
 
 export async function getDBConnection() {
 
-const dbPath = path.join('database.db')
+  const dbPath = path.join('database.db')
 
- return open({
-   filename: dbPath,
-   driver: sqlite3.Database
- }) 
+  const db = await open({
+    filename: dbPath,
+    driver: sqlite3.Database
+  })
 
-} 
+  // Create tables automatically
+  await db.exec(`
+    CREATE TABLE IF NOT EXISTS products (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      name TEXT,
+      artist TEXT,
+      genre TEXT,
+      price REAL,
+      image TEXT
+    );
+  `)
+
+  return db
+}
