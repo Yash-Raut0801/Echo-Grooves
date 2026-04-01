@@ -13,8 +13,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const PORT = 8000;
-const SECRET_KEY = process.env.SPIRAL_SESSION_SECRET
+const PORT = process.env.PORT || 8000;
+const SECRET_KEY = process.env.SPIRAL_SESSION_SECRET || "dev-secret"
 
 app.use(express.json());
 app.use(session({
