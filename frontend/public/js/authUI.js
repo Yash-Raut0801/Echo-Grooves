@@ -1,7 +1,7 @@
 // ===== Check if user is signed in =====
 export async function checkAuth() {
   try {
-    const res = await fetch('/api/auth/me')
+    const res = await fetch('https://echo-grooves.onrender.com/api/auth/me')
 
     if (!res.ok) {
       console.warn('Unexpected response:', res.status)

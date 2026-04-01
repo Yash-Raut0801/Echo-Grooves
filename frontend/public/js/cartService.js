@@ -4,7 +4,7 @@ export function addBtnListeners() {
       const albumId = event.currentTarget.dataset.id
 
       try {
-        const res = await fetch('/api/cart/add', {
+        const res = await fetch('https://echo-grooves.onrender.com/api/cart/add', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           credentials: 'include',
@@ -27,7 +27,7 @@ export function addBtnListeners() {
 
 export async function updateCartIcon() {
   try {
-    const res = await fetch('/api/cart/cart-count', { credentials: 'include' })
+    const res = await fetch('https://echo-grooves.onrender.com/api/cart/cart-count', { credentials: 'include' })
 
     if (!res.ok) {
       document.getElementById('cart-banner').innerHTML = ''
@@ -61,7 +61,7 @@ export async function loadCart(dom) {
 }
 
 async function fetchCartItems({ userMessage, checkoutBtn }) {
-  const res = await fetch('/api/cart/', { credentials: 'include' })
+  const res = await fetch('https://echo-grooves.onrender.com/api/cart/', { credentials: 'include' })
 
   if (!res.ok) {
     window.location.href = '/'
@@ -108,7 +108,7 @@ function updateCartTotal(items, cartTotal, checkoutBtn) {
 
 export async function removeItem(itemId, dom) {
   try {
-    const res = await fetch(`/api/cart/${itemId}`, {
+    const res = await fetch(`https://echo-grooves.onrender.com/api/cart/${itemId}`, {
       method: 'DELETE',
       credentials: 'include'
     })
@@ -125,7 +125,7 @@ export async function removeItem(itemId, dom) {
 
 export async function removeAll(dom) {
   try {
-    const res = await fetch('/api/cart/all', {
+    const res = await fetch('https://echo-grooves.onrender.com/api/cart/all', {
       method: 'DELETE',
       credentials: 'include'
     })
