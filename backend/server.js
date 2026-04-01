@@ -10,7 +10,7 @@ dotenv.config()
 
 const app = express();
 const PORT = 8000;
-const SECRET_KEY = process.env.SPIRAL_SESSION_SECRET
+const SECRET_KEY = process.env.SPIRAL_SESSION_SECRET || "dev-secret"
 
 app.use(express.json());
 app.use(session({
